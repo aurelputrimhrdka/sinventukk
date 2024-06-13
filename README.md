@@ -151,13 +151,13 @@ php artisan make:controller RegistrasiController
     ServerName sinventukk.test
 
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/sinventukk/public
+    DocumentRoot /var/www/sinvent_ukk/public
 
-    <Directory /var/www/sinventukk/public>
+    <Directory /var/www/sinvent_ukk/public>
 
     	Options Indexes FollowSymLinks
     	AllowOverride All
-        Require all granted 
+          Require all granted 
 
     </Directory>
 
