@@ -8,14 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/kategori', \App\Http\Controllers\KategoriController::class);
-// ->middleware('auth');
-Route::resource('/barang', \App\Http\Controllers\BarangController::class);
-// ->middleware('auth');
-Route::resource('/barangmasuk', \App\Http\Controllers\BarangMasukController::class);
-// ->middleware('auth');
-Route::resource('/barangkeluar', \App\Http\Controllers\BarangKeluarController::class);
-// ->middleware('auth');
+Route::resource('/kategori', \App\Http\Controllers\KategoriController::class)->middleware('auth');
+Route::resource('/barang', \App\Http\Controllers\BarangController::class)->middleware('auth');
+Route::resource('/barangmasuk', \App\Http\Controllers\BarangMasukController::class)->middleware('auth');
+Route::resource('/barangkeluar', \App\Http\Controllers\BarangKeluarController::class)->middleware('auth');
 
 //route login
 Route::get('login', [LoginController::class,'index'])->name('login')->middleware('guest');
