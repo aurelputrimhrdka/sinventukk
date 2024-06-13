@@ -56,6 +56,11 @@
   ```bash
   composer
   ```
+## Laravel Installation
+```bash
+composer create-project laravel/laravel sinvent_ukk --prefer-dist
+```
+
 ## Deploy System Inventory
 - Cloning repository
   ```bash
@@ -149,20 +154,21 @@
   systemctl restart apache2
   ```
 ## Change Permissions
-- Direktory Storage
+- Directory Storage
   ```bash
   chown www-data:www-data -R storage/
   ```
   ```bash
   chmod 755 -R storage/
   ```
-- Direktory Project
+- Directory Project
   ```bash
   chown www-data:www-data -R sinvent_ukk/
   ```
   ```bash
   chmod 755 -R sinvent_ukk/
   ```
+
 
 ## Store Function
 ```bash
