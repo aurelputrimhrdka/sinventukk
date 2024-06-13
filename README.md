@@ -7,6 +7,56 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## INSTALLATION REQUIREMENTS
+- Apache
+  ```bash
+  apt-get install apache2 -y
+  ```
+- MariaDB
+  ```bash
+  apt-get install mariadb-server -y
+  ```
+- PHP 8.3
+  ```bash
+  apt install ca-certificates apt-transport-https software-properties-common lsb- 
+  release -y
+  ```
+  ```bash
+  apt install curl
+  ```
+  ```bash
+  curl -sSL https://packages.sury.org/php/README.txt | bash -x
+  ```
+  ```bash
+  apt update
+  ```
+  ```bash
+  apt-get install php8.3 php8.3-common php8.3-curl libapache2-mod-php php8.3-imap php8.3-redis php8.3-cli php8.3-snmp php8.3-xml php8.3-zip php8.3-mbstring php8.3-gd php8.3-xml php8.3 mysql php-mbstring -y
+
+  ```
+- Composer
+  ```bash
+  apt install curl php-cli php-mbstring git unzip
+  ```
+  ```bash
+  curl -sS https://getcomposer.org/installer -o composer-setup.php
+  ```
+  ```bash
+  HASH=`curl -sS https://composer.github.io/installer.sig`
+  ```
+  ```bash
+  echo $HASH
+  ```
+  ```bash
+  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+  ```
+  ```bash
+  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+  ```
+  ```bash
+  composer
+  ```
+
 ## Store Function
 ```bash
 DELIMITER $$
