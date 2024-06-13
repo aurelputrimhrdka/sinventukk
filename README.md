@@ -60,6 +60,32 @@
 ```bash
 composer create-project laravel/laravel sinvent_ukk --prefer-dist
 ```
+## Migration
+```bash
+php artisan make:migration create_barang_table --create=barang
+php artisan make:migration create_kategori_table --create=kategori
+php artisan make:migration create_barangmasuk_table --create=barangmasuk
+php artisan make:migration create_barangkeluar_table --create=barangkeluar
+```
+## Model
+```bash
+php artisan make:model Barang
+php artisan make:model Kategori
+php artisan make:model BarangMasuk
+php artisan make:model BarangKeluar
+```
+## Controller
+```bash
+php artisan make:controller BarangController
+php artisan make:controller KategoriController
+php artisan make:controller BarangMasukController
+php artisan make:controller BarangKeluarController
+```
+## Authentication Controller
+```bash
+php artisan make:controller LoginController
+php artisan make:controller RegistrasiController
+```
 
 ## Deploy System Inventory
 - Cloning repository
@@ -169,6 +195,20 @@ composer create-project laravel/laravel sinvent_ukk --prefer-dist
   chmod 755 -R sinvent_ukk/
   ```
 
+## API
+- Install API
+  ```bash
+  php artisan install:api
+  ```
+- Buat KategoriController di folder Api
+  ```bash
+  php artisan make:controller Api/KategoriController --api --model=Kategori
+  ```
+- Masuk ke file api.php di folder routes lalu tambahkan routenya
+  ```bash
+  use App\Http\Controllers\Api\KategoriController;
+  Route::apiResource('kategori', KategoriController::class);
+  ```
 
 ## Store Function
 ```bash
