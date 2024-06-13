@@ -5,20 +5,20 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-left">
-                    <h2>Edit Barang Keluar</h2>
+                    <h2>Edit Barang Masuk</h2>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('barangkeluar.update', $barangKeluar->id) }}" method="POST" enctype="multipart/form-data">                    
+                        <form action="{{ route('barangmasuk.update', $barangMasuk->id) }}" method="POST" enctype="multipart/form-data">                    
                             @csrf
                             @method('PUT')
 
                             <div class="form-group">
-                                <label class="font-weight-bold">TANGGAL KELUAR</label>
-                                <input type="date" class="form-control @error('tgl_keluar') is-invalid @enderror" name="tgl_keluar" value="{{ old('tgl_keluar', $barangKeluar->tgl_keluar) }}" placeholder="Masukkan Tanggal Keluar Barang">
+                                <label class="font-weight-bold">TANGGAL MASUK</label>
+                                <input type="date" class="form-control @error('tgl_masuk') is-invalid @enderror" name="tgl_masuk" value="{{ old('tgl_masuk', $barangMasuk->tgl_masuk) }}" placeholder="Masukkan Tanggal Masuk Barang">
                            
-                                <!-- error message untuk tgl_keluar -->
-                                @error('tgl_keluar')
+                                <!-- error message untuk tgl_masuk -->
+                                @error('tgl_masuk')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -26,11 +26,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">JUMLAH KELUAR</label>
-                                <input type="number" min="0" class="form-control @error('qty_keluar') is-invalid @enderror" name="qty_keluar" value="{{ old('qty_keluar', $barangKeluar->qty_keluar) }}" placeholder="Masukkan Jumlah Keluar Barang">
+                                <label class="font-weight-bold">JUMLAH MASUK</label>
+                                <input type="number" min="0" class="form-control @error('qty_masuk') is-invalid @enderror" name="qty_masuk" value="{{ old('qty_masuk', $barangMasuk->qty_masuk) }}" placeholder="Masukkan Jumlah Masuk Barang">
                            
-                                <!-- error message untuk qty_keluar -->
-                                @error('qty_keluar')
+                                <!-- error message untuk qty_masuk -->
+                                @error('qty_masuk')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -38,12 +38,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">PILIH BARANG</label>
+                                <label class="font-weight-bold">NAMA BARANG</label>
                                 <!-- Input readonly untuk menampilkan nama barang -->
-                                <input type="text" class="form-control" value="{{ $barangKeluar->barang->merk }}" readonly>
+                                <input type="text" class="form-control" value="{{ $barangMasuk->barang->merk }}" readonly>
                                 
                                 <!-- Input hidden untuk menyimpan nilai barang_id -->
-                                <input type="hidden" name="barang_id" value="{{ $barangKeluar->barang_id }}">
+                                <input type="hidden" name="barang_id" value="{{ $barangMasuk->barang_id }}">
                                 
                                 <!-- error message untuk kategori -->
                                 @error('barang_id')
@@ -53,9 +53,8 @@
                                 @enderror
                             </div>
 
-
                             <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
-                            <a href="{{ route('barangkeluar.index') }}" class="btn btn-md btn-secondary">BATAL</a>
+                            <a href="{{ route('barangmasuk.index') }}" class="btn btn-md btn-secondary">BATAL</a>
                         </form>
                     </div>
                 </div>
