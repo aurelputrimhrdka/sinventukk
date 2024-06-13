@@ -56,6 +56,113 @@
   ```bash
   composer
   ```
+## Deploy System Inventory
+- Cloning repository
+  ```bash
+  git clone https://github.com/aurelputrimhrdka/sinventukk.git
+  ```
+  ```bash
+  cd sinventukk
+  ```
+- Copy file .env.exsamples
+  ```bash
+  cp .env.example .env
+  ```
+- Create database
+  ```bash
+  create database sinvent_db;
+  ```
+  ```bash
+  create user 'sinvent_adm'@'localhost' identified by '123';
+  ```
+  ```bash
+  grant all privileges on sinvent_db.* to 'sinvent_adm'@'localhost' identified by '123';
+  ```
+  ```bash
+  flush privileges;
+  ```
+- Edit file .env
+  ```bash
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=sinvent_db
+  DB_USERNAME=sinvent_adm
+  DB_PASSWORD=123
+
+  SESSION_DRIVER=file
+
+  ```
+- Install composer
+  ```bash
+  composer install
+  ```
+- Set key
+  ```bash
+  php artisan key:generate
+  ```
+- Database migration
+  ```bash
+  php artisan migrate
+  ```
+## VPS Configuration
+- Masuk ke directory
+  ```bash
+  cd /etc/apache2/sites
+  ```
+- Buat file sinvent.conf
+  ```bash
+  nano sinvent.conf
+  ```
+- Konfigurasi file sinvent.conf
+  ```bash
+  <VirtualHost *:80>
+    ServerName sinventukk.test
+
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/sinventukk/public
+
+    <Directory /var/www/sinventukk/public>
+
+    	Options Indexes FollowSymLinks
+    	AllowOverride All
+        Require all granted 
+
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/sinventukk-error.log
+    CustomLog ${APACHE_LOG_DIR}/sinventukk-access.log combined
+
+  </VirtualHost>
+
+  ```
+- Aktifkan file sinvent.conf
+  ```bash
+  a2ensite sinvent.conf
+  ```
+- Non-aktifkan file 000-default.conf
+  ```bash
+  a2dissite 000-default.conf
+  ```
+- Restart apache
+  ```bash
+  systemctl restart apache2
+  ```
+## Change Permissions
+- Direktory Storage
+  ```bash
+  chown www-data:www-data -R storage/
+  ```
+  ```bash
+  chmod 755 -R storage/
+  ```
+- Direktory Project
+  ```bash
+  chown www-data:www-data -R sinvent_ukk/
+  ```
+  ```bash
+  chmod 755 -R sinvent_ukk/
+  ```
 
 ## Store Function
 ```bash
@@ -75,6 +182,16 @@ END IF;
 END$$
 DELIMITER ;
 ```
+## Store Procedure
+```bash
+DELIMITER $$
+CREATE PROCEDURE getKategoriAll()
+BEGIN
+SELECT * FROM kategori;
+END$$
+DELIMITER ;
+```
+
 ## Trigger
 - Trigger untuk menambah stok di tabel barang pada barangmasuk
     ```bash
