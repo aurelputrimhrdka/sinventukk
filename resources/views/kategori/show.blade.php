@@ -28,7 +28,7 @@
         <br>
         <div class="row">
             <div class="col-md-1  text-center">
-                <a href="{{ route('kategori.index') }}" class="btn btn-md btn-primary mb-3">Back</a>
+                <a href="{{ route('kategori.index') }}" class="btn btn-md btn-primary mb-3">BACK</a>
             </div>
         </div>
     </div>

@@ -53,7 +53,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">STOK</label>
-                                <input type="text" class="form-control @error('stok') is-invalid @enderror" name="stok" value="{{ old('stok') }}" placeholder="Masukkan Stok Barang" disabled>
+                                <input type="text" class="form-control @error('stok') is-invalid @enderror" name="stok" value="{{ old('stok') }}" placeholder="Masukkan Stok Barang pada form barang masuk!" disabled>
                            
                                 <!-- error message untuk stok -->
                                 @error('stok')
