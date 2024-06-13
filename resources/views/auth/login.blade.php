@@ -28,11 +28,11 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block">
-                            <div class="d-flex justify-content-center align-items-center h-100">
-                                <img src="{{ asset('theme/img/login.png') }}" alt="" style="width: 120%; height: 100%;">
+                        <div class="col-lg-6 d-none d-lg-block m-auto">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="{{ asset('theme/img/login.png') }}" alt="" style="width: 70%;">
+                                </div>
                             </div>
-                        </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
