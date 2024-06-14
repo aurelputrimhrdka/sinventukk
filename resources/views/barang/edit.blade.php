@@ -89,6 +89,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <a href="{{ route('barang.index') }}" class="btn btn-md btn-primary mb-3">Back</a>
 
 
                         </form>
