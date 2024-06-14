@@ -60,7 +60,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                            <a href="{{ route('barangkeluar.index') }}" class="btn btn-md btn-primary mb-3">Back</a>
+                            <a href="{{ route('barangkeluar.index') }}" class="btn btn-md btn-primary mb-0">Back</a>
 
 
                         </form>
