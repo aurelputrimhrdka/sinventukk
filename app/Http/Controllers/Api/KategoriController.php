@@ -36,13 +36,14 @@ class KategoriController extends Controller
 
         $databaru = array("data"=>$kategoribaru);
         return response()->json($databaru);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Kategori $kategori)
-    {
+    public function show(string $id)
+    {   
         $kategori = Kategori::find($id);
         
         if(!$kategori){
@@ -52,11 +53,10 @@ class KategoriController extends Controller
             return response()->json($data);
         }
     }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, string $id)
     {
         $kategori = Kategori::find($id);
 
@@ -80,7 +80,7 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategori $kategori)
+    public function destroy(string $id)
     {
         $kategori = Kategori::find($id);
 
@@ -95,6 +95,5 @@ class KategoriController extends Controller
             // Tangkap pengecualian spesifik dari database (termasuk constraints foreign key)
             return response()->json(['status' => 'Kategori tidak dapat dihapus'], 500);
         }
-    }
     }
 }
